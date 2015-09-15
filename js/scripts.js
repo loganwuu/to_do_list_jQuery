@@ -1,41 +1,33 @@
 $(document).ready(function() {
+    var newTask;
+
     $("form#new-task").submit(function(event) {
         event.preventDefault();
 
         var inputtedTask = $("input#new-task").val();
 
-        var newTask = { task: inputtedTask };
+        newTask = { task: inputtedTask };
 
         $("ul#tasks").append("<li><span class='task'>" +
                                 newTask.task +
                                 "</span></li>");
 
         $("input#new-task").val("");
+
         $(".task").text(newTask.task);
 
         $(".task").last().click(function() {
             $(".task").parent().toggle();
-            // $("#completed").toggle();
-            $("ul#completed").append("<li><span class='task'>" +
+            $("ul#completed").append("<li><span class='completed'>" +
                                     newTask.task +
                                     "</span></li>");
-            $("ul#completed").last().click(function() {
+
+            $(".completed").last().click(function() {
                 $(".task").parent().toggle();
-                // $("#completed").toggle();
-                // $("ul#completed").remove("<li><span class='task'>" +
-                //                         newTask.task +
-                //                         "</span></li>");
-
+                $(".completed").parent().toggle();
                 $(this).remove();
-
-            // $(document).ready(function() {
-            //     $(".task").click(function() {
-            //         $(".task").toggle();
-            //   });
-            // });
 
             });
         });
-
     });
 });
