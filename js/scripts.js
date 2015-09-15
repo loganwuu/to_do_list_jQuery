@@ -11,22 +11,31 @@ $(document).ready(function() {
                                 "</span></li>");
 
         $("input#new-task").val("");
-        $(".tasks").text(newTask.task);
+        $(".task").text(newTask.task);
 
-        $(".tasks").last().click(function() {
-            $("#show-task").toggle();
+        $(".task").last().click(function() {
+            $(".task").parent().toggle();
             // $("#completed").toggle();
             $("ul#completed").append("<li><span class='task'>" +
                                     newTask.task +
                                     "</span></li>");
+            $("ul#completed").last().click(function() {
+                $(".task").parent().toggle();
+                // $("#completed").toggle();
+                // $("ul#completed").remove("<li><span class='task'>" +
+                //                         newTask.task +
+                //                         "</span></li>");
 
+                $(this).remove();
 
-        // $(document).ready(function() {
-        //     $(".task").click(function() {
-        //         $(".task").toggle();
-        //   });
-        // });
+            // $(document).ready(function() {
+            //     $(".task").click(function() {
+            //         $(".task").toggle();
+            //   });
+            // });
 
+            });
         });
+
     });
 });
