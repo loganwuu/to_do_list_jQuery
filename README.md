@@ -6,6 +6,7 @@
 
 ## Description
 
+Users are allowed to toggle back and forth the items from ```To Do List``` and ```Completed List```.
 
 ## Setup
 
